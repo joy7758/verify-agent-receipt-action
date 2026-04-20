@@ -1,0 +1,72 @@
+name: Verify Agent Execution Receipt
+author: Zhang Bin
+description: Validate signed agent execution receipts against evidence bundles.
+branding:
+  icon: check-circle
+  color: blue
+
+inputs:
+  receipt:
+    required: true
+    description: Path to execution_receipt.json
+  evidence:
+    required: true
+    description: Path to evidence_bundle.json
+  public-key:
+    required: true
+    description: Path to public key PEM file
+  audience:
+    required: false
+    default: demo-validator
+    description: Expected audience value for the receipt
+  output:
+    required: false
+    default: verification_report.json
+    description: Path to the generated verification report JSON
+  package-version:
+    required: false
+    default: "0.1.1"
+    description: verifiable-tool-invocation-flow package version to install
+  python-version:
+    required: false
+    default: "3.13"
+    description: Python version used for validator execution
+  fail-on-invalid:
+    required: false
+    default: "true"
+    description: Exit nonzero when the validation verdict is invalid
+
+outputs:
+  verdict:
+    description: Validation verdict, valid or invalid
+    value: ${{ steps.verify.outputs.verdict }}
+  report-path:
+    description: Path to the generated verification report
+    value: ${{ steps.verify.outputs.report-path }}
+
+runs:
+  using: composite
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v6
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install validator package
+      shell: bash
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install "verifiable-tool-invocation-flow==${{ inputs.package-version }}"
+
+    - name: Verify execution receipt
+      id: verify
+      shell: bash
+      env:
+        INPUT_RECEIPT: ${{ inputs.receipt }}
+        INPUT_EVIDENCE: ${{ inputs.evidence }}
+        INPUT_PUBLIC_KEY: ${{ inputs.public-key }}
+        INPUT_AUDIENCE: ${{ inputs.audience }}
+        INPUT_OUTPUT: ${{ inputs.output }}
+        INPUT_FAIL_ON_INVALID: ${{ inputs.fail-on-invalid }}
+      run: |
+        "${GITHUB_ACTION_PATH}/scripts/verify_receipt.sh"
