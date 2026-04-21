@@ -8,6 +8,14 @@
 
 A GitHub Action for validating signed agent execution receipts against evidence bundles.
 
+## Live demo
+
+You can try the receipt validator visually in the Hugging Face Space:
+
+- [Agent Receipt Validator Space](https://huggingface.co/spaces/joy7759/agent-receipt-validator)
+
+The demo is for inspection and experimentation only. Do not upload private keys, production receipts, confidential evidence bundles, API tokens, or sensitive data.
+
 ## What this action does
 
 This action installs [`verifiable-tool-invocation-flow`](https://pypi.org/project/verifiable-tool-invocation-flow/0.1.1/) from PyPI and runs its independent validator CLI against:
