@@ -1,5 +1,11 @@
 # Verify Agent Execution Receipt
 
+[![GitHub Marketplace](https://img.shields.io/badge/GitHub%20Marketplace-Verify%20Agent%20Execution%20Receipt-blue?logo=github)](https://github.com/marketplace/actions/verify-agent-execution-receipt)
+[![GitHub release](https://img.shields.io/github/v/release/joy7758/verify-agent-receipt-action?sort=semver)](https://github.com/joy7758/verify-agent-receipt-action/releases/tag/v0.1.0)
+[![Core package](https://img.shields.io/pypi/v/verifiable-tool-invocation-flow?label=core%20package)](https://pypi.org/project/verifiable-tool-invocation-flow/0.1.1/)
+[![Tag: security](https://img.shields.io/badge/tag-security-blue)](https://github.com/marketplace?type=actions&category=security)
+[![Tag: continuous-integration](https://img.shields.io/badge/tag-continuous--integration-2ea44f)](https://github.com/marketplace?type=actions&category=continuous-integration)
+
 A GitHub Action for validating signed agent execution receipts against evidence bundles.
 
 ## What this action does
@@ -74,7 +80,7 @@ jobs:
 
 ## Example workflow snippet
 
-See [examples/workflow-example.md](/Users/zhangbin/GitHub/verify-agent-receipt-action/examples/workflow-example.md) for the same workflow snippet with a short explanation.
+See [examples/workflow-example.md](examples/workflow-example.md) for the same workflow snippet with a short explanation.
 
 ## Security boundaries
 
@@ -99,3 +105,14 @@ This repository is intentionally narrow. It contains:
 - local tests for the action wrapper
 
 It does not duplicate the receipt builder, signer, policy engine, or validator implementation from the core package.
+
+## Support and commercial integration
+
+This action is open-source infrastructure for CI-based verification of signed agent execution receipts.
+
+For public technical questions, use GitHub Issues. For private CI integration, custom receipt verification workflows, policy adaptation, or agent workflow evidence gates, see:
+
+- [SUPPORT.md](SUPPORT.md)
+- [COMMERCIAL_SUPPORT.md](COMMERCIAL_SUPPORT.md)
+
+GitHub Sponsors is not currently enabled for this account. Funding links may be added later once a sponsorship channel is active.
