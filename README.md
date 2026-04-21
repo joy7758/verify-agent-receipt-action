@@ -16,6 +16,20 @@ You can try the receipt validator visually in the Hugging Face Space:
 
 The demo is for inspection and experimentation only. Do not upload private keys, production receipts, confidential evidence bundles, API tokens, or sensitive data.
 
+## Related public assets
+
+The receipt validation toolkit is also available through:
+
+- Core CrewAI Flow template: https://github.com/joy7758/verifiable-tool-invocation-flow
+- Core PyPI package: https://pypi.org/project/verifiable-tool-invocation-flow/0.1.1/
+- Hugging Face validator demo: https://huggingface.co/spaces/joy7759/agent-receipt-validator
+- MCP server package: https://pypi.org/project/agent-receipt-validator-mcp/0.1.1/
+- MCP server repository: https://github.com/joy7758/agent-receipt-validator-mcp
+
+Use the GitHub Action for CI/CD receipt verification. Use the MCP server when an MCP-compatible client needs to call receipt validation tools locally.
+
+The MCP server and this Action validate signed execution evidence. They do not prove semantic correctness of tool outputs, certify legal compliance, or replace sandboxing, IAM, access control, monitoring, or human approval.
+
 ## What this action does
 
 This action installs [`verifiable-tool-invocation-flow`](https://pypi.org/project/verifiable-tool-invocation-flow/0.1.1/) from PyPI and runs its independent validator CLI against:
