@@ -1,0 +1,22 @@
+# Verify Agent Receipt Action
+
+Purpose: GitHub Action wrapper for validating signed agent execution receipts against evidence bundles.
+
+Primary files:
+- action.yml: composite GitHub Action definition.
+- scripts/verify_receipt.sh: invokes verifiable-tool-invocation-flow validator and emits GitHub outputs.
+- scripts/read_verdict.py: reads the verdict from a JSON verification report.
+- tests/run_local_test.sh: local integration check that validates a generated valid receipt and tampered invalid evidence.
+- tests/test_read_verdict.py: unit tests for report verdict parsing.
+- tests/test_shell_syntax.sh: shell syntax gate for local helper scripts.
+
+Recommended local checks:
+- python3 -m unittest tests/test_read_verdict.py
+- bash tests/test_shell_syntax.sh
+- bash tests/run_local_test.sh
+
+Safety boundaries:
+- This action validates structural cryptographic receipt evidence.
+- It does not prove semantic correctness of tool outputs.
+- It does not replace code review, sandboxing, IAM, policy review, or human approval.
+- Do not upload private keys, production receipts, confidential evidence bundles, or API tokens to public demos.
