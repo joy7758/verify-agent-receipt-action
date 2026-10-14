@@ -1,3 +1,5 @@
+> **Moved:** this repository has been merged into [joy7758/agent-receipt-validator-mcp](https://github.com/joy7758/agent-receipt-validator-mcp/tree/main/verify-agent-receipt-action) with full history. This repo is archived and read-only.
+
 # Verify Agent Execution Receipt
 
 [![GitHub Marketplace](https://img.shields.io/badge/GitHub%20Marketplace-Verify%20Agent%20Execution%20Receipt-blue?logo=github)](https://github.com/marketplace/actions/verify-agent-execution-receipt)
